@@ -12,7 +12,9 @@ $ ng new angular-tour-of-heroes-re
 $ ng new angular-tour-of-heroes-re --style=scss
 ```
 
-## コンポーネントの構成
+## コンポーネント
+
+### コンポーネントの構成
 
 基本的なコンポーネントは３つのファイルで構成される。
 
@@ -22,28 +24,28 @@ $ ng new angular-tour-of-heroes-re --style=scss
 - `app.component.html`: HTML で書かれたコンポーネントのテンプレート。
 - `app.component.scss`: コンポーネント専用の CSS（今回は`--style=scss`オプションでプロジェクトを作成したので Scss ファイル）。
 
-### `app.component.ts`
+#### `app.component.ts`
 
 以下は単純な`app.component.ts`の例。
 
 ```ts
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
   // コンポーネントのセレクタ。テンプレートで <app-root></app-root> と記述して利用できる。
-  selector: 'app-root',
+  selector: "app-root",
   // コンポーネントのテンプレートファイル
-  templateUrl: './app.component.html',
+  templateUrl: "./app.component.html",
   // コンポーネント専用のスタイル
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
   // プロパティ。テンプレート（./app.component.html）上で `{{ title }}` と記述すればバインディングできる。
-  title = 'Tour of Heroes';
+  title = "Tour of Heroes";
 }
 ```
 
-### `app.component.html`
+#### `app.component.html`
 
 以下は単純な`app.component.html`の例。
 
@@ -59,29 +61,27 @@ export class AppComponent {
 <h1>Tour of Heroes</h1>
 ```
 
-### コンポーネントの利用方法
+#### コンポーネントの利用方法
 
 `src/app.modules.ts`にコンポーネントを利用する記述を追加する。
 
 ```ts
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
 // App コンポーネントをインポート
-import { AppComponent } from './app.component';
+import { AppComponent } from "./app.component";
 
 @NgModule({
   declarations: [
     // AppComponent を宣言。app.component.ts で`selector: 'app-root'`を指定しているため、テンプレートで <app-root> を利用できる。
-    AppComponent
+    AppComponent,
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
 上記のように、コンポーネントの宣言を追加すれば、テンプレートで以下のように記述して利用できる。
@@ -96,7 +96,7 @@ export class AppModule { }
 <h1>Tour of Heroes</h1>
 ```
 
-## コンポーネントの雛形の作成
+### コンポーネントの雛形の作成
 
 `ng genetare component`コマンドを実行すればコンポーネントの雛形を作成できる。
 
