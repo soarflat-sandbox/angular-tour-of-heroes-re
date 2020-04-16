@@ -61,7 +61,30 @@ export class AppComponent {
 
 ### コンポーネントの利用方法
 
-`app.component.ts`で`selector: 'app-root'`を指定しているため、このコンポーネントを利用する場合、テンプレートで以下のように記述する。
+`src/app.modules.ts`にコンポーネントを利用する記述を追加する。
+
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+// App コンポーネントをインポート
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    // AppComponent を宣言。app.component.ts で`selector: 'app-root'`を指定しているため、テンプレートで <app-root> を利用できる。
+    AppComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+上記のように、コンポーネントの宣言を追加すれば、テンプレートで以下のように記述して利用できる。
 
 ```html
 <app-root></app-root>
@@ -71,4 +94,35 @@ export class AppComponent {
 
 ```html
 <h1>Tour of Heroes</h1>
+```
+
+## コンポーネントの雛形の作成
+
+`ng genetare component`コマンドを実行すればコンポーネントの雛形を作成できる。
+
+以下の場合、Heroes コンポーネントの雛形を作成する。
+
+```bash
+$ ng generate component heroes
+src/app/heroes/heroes.component.scss # コンポーネントの SCSS ファイル
+src/app/heroes/heroes.component.html # コンポーネントのテンプレートファイル
+src/app/heroes/heroes.component.spec.ts # コンポーネントのテストファイル
+src/app/heroes/heroes.component.ts # コンポーネントクラスのファイル
+```
+
+また、`src/app/app.module.ts`で Heroes コンポーネントをインポートし、`declarations`に`HeroesComponent`が追加されるため、テンプレートで利用できる状態になる。
+
+```ts
+// 省略...
+import { HeroesComponent } from './heroes/heroes.component';
+// 省略...
+
+@NgModule({
+  declarations: [
+    // 省略...
+    // HeroesComponent を宣言。heroes.component.ts で`selector: 'app-heroes'`を指定しているため、テンプレートで <app-heros> を利用できる。
+    HeroesComponent
+  ],
+  // 省略...
+})
 ```

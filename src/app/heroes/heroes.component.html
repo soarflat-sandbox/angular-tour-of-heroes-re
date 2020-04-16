@@ -1,0 +1,7 @@
+<!-- uppercase という組み込みのパイプを利用して大文字にする。様々なパイプが存在する（https://angular.jp/guide/pipes）。 -->
+<h2>{{ hero.name | uppercase }} Details</h2>
+<div><span>id: </span>{{ hero.id }}</div>
+<div>
+  <!-- ngModel を利用して`hero.name`を双方向データバインディングする-->
+  <label>name:<input [(ngModel)]="hero.name" placeholder="name" /></label>
+</div>
