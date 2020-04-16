@@ -10,6 +10,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 // HeroDetailComponent コンポーネントをインポート
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,8 @@ import { MessagesComponent } from './messages/messages.component';
     // ngModel（双方向バインディング）は FormsModule に属しているため、これをインポートすれば
     // <input [(ngModel)]="currentItem.name" id="eample-ngModal"> のように ngModel を利用できる。
     FormsModule,
+    // AppRoutingModule は RouterModule をエクスポートしているため、アプリ全体でルーティングを利用できるようになる。
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
