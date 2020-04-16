@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
+import { HEROES } from '../mock-heroes';
 
 @Component({
   // コンポーネントのセレクタ。テンプレートで <app-heroes></app-heroes> と記述して利用できる。
@@ -10,14 +11,15 @@ import { Hero } from '../hero';
   styleUrls: ['./heroes.component.scss'],
 })
 export class HeroesComponent implements OnInit {
-  // プロパティ。テンプレート（./heroes.component.html）上で
-  //`{{ hero.id }}`、`{{ hero.name }}`と記述すればバインディングできる。
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm',
-  };
+  // プロパティ。テンプレート（./heroes.component.html）上でバインディングできる。
+  heroes = HEROES;
+  selectedHero: Hero;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 }
