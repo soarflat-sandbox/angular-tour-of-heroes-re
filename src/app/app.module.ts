@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 // HeroDetailComponent コンポーネントをインポート
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
     HeroesComponent,
     // HeroDetailComponent を宣言。heroes-detail.component.ts で`selector: 'app-heroes-detail'`を指定しているため、テンプレートで <app-heros-detail> を利用できる。
     HeroDetailComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
 
 @Component({
   // コンポーネントのセレクタ。テンプレートで <app-heroes></app-heroes> と記述して利用できる。
@@ -16,8 +17,12 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[];
   selectedHero: Hero;
 
-  // HeroService を注入する
-  constructor(private heroService: HeroService) {}
+  constructor(
+    // HeroService を注入する
+    private heroService: HeroService,
+    // MessageService を注入する
+    private messageService: MessageService
+  ) {}
 
   // コンポーネント作成直後に呼び出されるライフサイクルフック
   ngOnInit() {
@@ -26,6 +31,7 @@ export class HeroesComponent implements OnInit {
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+    this.messageService.add(`HeroService: Selected hero id=${hero.id}`);
   }
 
   getHeroes(): void {
