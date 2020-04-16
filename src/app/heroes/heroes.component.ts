@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Hero } from '../hero';
-import { HEROES } from '../mock-heroes';
+import { HeroService } from '../hero.service';
 
 @Component({
   // コンポーネントのセレクタ。テンプレートで <app-heroes></app-heroes> と記述して利用できる。
@@ -12,14 +13,23 @@ import { HEROES } from '../mock-heroes';
 })
 export class HeroesComponent implements OnInit {
   // プロパティ。テンプレート（./heroes.component.html）上でバインディングできる。
-  heroes = HEROES;
+  heroes: Hero[];
   selectedHero: Hero;
 
-  constructor() {}
+  // HeroService を注入する
+  constructor(private heroService: HeroService) {}
 
-  ngOnInit(): void {}
+  // コンポーネント作成直後に呼び出されるライフサイクルフック
+  ngOnInit() {
+    this.getHeroes();
+  }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+  }
+
+  getHeroes(): void {
+    // 注入した HeroService からヒーローデータを取得
+    this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
   }
 }
