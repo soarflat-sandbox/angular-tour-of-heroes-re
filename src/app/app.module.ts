@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 // Heroes コンポーネントをインポート
 import { HeroesComponent } from './heroes/heroes.component';
+// HeroDetailComponent コンポーネントをインポート
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { HeroesComponent } from './heroes/heroes.component';
     AppComponent,
     // HeroesComponent を宣言。heroes.component.ts で`selector: 'app-heroes'`を指定しているため、テンプレートで <app-heros> を利用できる。
     HeroesComponent,
+    // HeroDetailComponent を宣言。heroes-detail.component.ts で`selector: 'app-heroes-detail'`を指定しているため、テンプレートで <app-heros-detail> を利用できる。
+    HeroDetailComponent,
   ],
   imports: [
     BrowserModule,

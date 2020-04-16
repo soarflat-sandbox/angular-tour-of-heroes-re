@@ -9,14 +9,5 @@
   </li>
 </ul>
 
-<div *ngIf="selectedHero">
-  <!-- uppercase という組み込みのパイプを利用して大文字にする。様々なパイプが存在する（https://angular.jp/guide/pipes）。 -->
-  <h2>{{ selectedHero.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{ selectedHero.id }}</div>
-  <div>
-    <label
-      >name:
-      <input [(ngModel)]="selectedHero.name" placeholder="name" />
-    </label>
-  </div>
-</div>
+<!-- Heros コンポーネントのデータである selectedHero を、HeroDetail コンポーネントでは hero というプロパティで利用する-->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
