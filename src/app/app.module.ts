@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 // ngModel（双方向バインディング）をオプトインするためにインポートする
 import { FormsModule } from '@angular/forms';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 // App コンポーネントをインポート
 import { AppComponent } from './app.component';
@@ -36,6 +39,13 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     // AppRoutingModule は RouterModule をエクスポートしているため、アプリ全体でルーティングを利用できるようになる。
     AppRoutingModule,
+    // コンポーネントで HttpClient を注入できるようになる
+    HttpClientModule,
+    // HTTP リクエストをインターセプトし、シミュレートされたレスポンスを返す。
+    // 今回は InMemoryDataService で定義したデータをレスポンスとして返す。
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

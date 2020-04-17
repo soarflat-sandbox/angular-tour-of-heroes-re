@@ -40,4 +40,8 @@ export class HeroDetailComponent implements OnInit {
     // １つ前の URL に戻る
     this.location.back();
   }
+
+  save(): void {
+    this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
+  }
 }
