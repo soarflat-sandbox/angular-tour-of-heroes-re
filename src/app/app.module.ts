@@ -9,7 +9,11 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 // HeroDetailComponent コンポーネントをインポート
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+// MessagesComponent コンポーネントをインポート
 import { MessagesComponent } from './messages/messages.component';
+// DashboardComponent コンポーネントをインポート
+import { DashboardComponent } from './dashboard/dashboard.component';
+// AppRoutingModule コンポーネントをインポ
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -20,7 +24,10 @@ import { AppRoutingModule } from './app-routing.module';
     HeroesComponent,
     // HeroDetailComponent を宣言。heroes-detail.component.ts で`selector: 'app-heroes-detail'`を指定しているため、テンプレートで <app-heros-detail> を利用できる。
     HeroDetailComponent,
+    // MessagesComponent を宣言。heroes-detail.component.ts で`selector: 'app-messages'`を指定しているため、テンプレートで <app-heros-detail> を利用できる。
     MessagesComponent,
+    // DashboardComponent を宣言。heroes-detail.component.ts で`selector: 'app-dashboard'`を指定しているため、テンプレートで <app-dashboard> を利用できる。
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

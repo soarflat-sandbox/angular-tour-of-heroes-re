@@ -2,14 +2,29 @@ import { NgModule } from '@angular/core';
 // アプリにルーティング機能を持たせることができる RouterModule と Routes をインポート
 import { RouterModule, Routes } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
+  {
+    // '' を指定すると、URL のルートを意味する
+    path: '',
+    // /dashboard にリダイレクトする
+    redirectTo: '/dashboard',
+    pathMatch: 'full',
+  },
   {
     // ブラウザのアドレスバーにある URL にマッチする文字列
     path: 'heroes',
     // そのルートに遷移するときにルーターが作成する（描画する）コンポーネント
     component: HeroesComponent,
   },
+  {
+    // detail/12 などでアクセスすれば、HeroDetail コンポーネントを描画する
+    path: 'detail/:id',
+    component: HeroDetailComponent,
+  },
+  { path: 'dashboard', component: DashboardComponent },
 ];
 
 // モジュールに関する情報を宣言
