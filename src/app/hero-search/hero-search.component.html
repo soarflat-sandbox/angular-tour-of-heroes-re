@@ -1,0 +1,16 @@
+<div id="search-component">
+  <h4><label for="search-box">Hero Search</label></h4>
+
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <!-- heroes$ のように $ をつけることで、それが Observable であることを示す。-->
+    <!-- また、AsyncPipe（| async）を利用することで、Observableが自動的にサブスクライブされる。 -->
+    <!-- そのため、コンポーネントクラスでサブスクライブする必要がない。 -->
+    <li *ngFor="let hero of heroes$ | async">
+      <a routerLink="/detail/{{ hero.id }}">
+        {{ hero.name }}
+      </a>
+    </li>
+  </ul>
+</div>

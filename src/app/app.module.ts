@@ -16,8 +16,10 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 // DashboardComponent コンポーネントをインポート
 import { DashboardComponent } from './dashboard/dashboard.component';
-// AppRoutingModule コンポーネントをインポ
+// AppRoutingModule コンポーネントをインポート
 import { AppRoutingModule } from './app-routing.module';
+// HeroSearchComponent コンポーネントをインポート
+import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { AppRoutingModule } from './app-routing.module';
     MessagesComponent,
     // DashboardComponent を宣言。heroes-detail.component.ts で`selector: 'app-dashboard'`を指定しているため、テンプレートで <app-dashboard> を利用できる。
     DashboardComponent,
+    // HeroSearchComponent を宣言。heroes-search.component.ts で`selector: 'app-hero-search'`を指定しているため、テンプレートで <app-hero-search> を利用できる。
+    HeroSearchComponent,
   ],
   imports: [
     BrowserModule,
